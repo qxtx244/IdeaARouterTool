@@ -1,0 +1,8 @@
+rootProject.name = "ARouterTool"
+
+include ':ARouterTool'
+include ':demo'
+include ':lib-a'
+include ':Components'
+include ':Components:lib-b'
+include ':Components:lib-c'

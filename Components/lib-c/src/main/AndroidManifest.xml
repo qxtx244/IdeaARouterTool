@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.qxtx.idea.gradle.plugin.demo.lib_c">
+
+    <application>
+        <activity
+            android:name=".ExtActivity"
+            android:exported="true" />
+    </application>
+
+</manifest>

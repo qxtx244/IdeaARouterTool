@@ -1,0 +1,73 @@
+buildscript {
+    repositories {
+        maven { url uri(localMavenCentral())}
+    }
+
+    dependencies {
+        classpath 'com.qxtx.idea.gradle.plugin.aroutertool:ARouterTool:1.0.0'
+    }
+}
+
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+apply plugin: 'arouter-tool'
+ARouterTool {
+    docConfig {
+        //启用doc收集功能，输出路径为module
+        docEnable true
+        //收集指定project的arouter-apiDoc，Components意味着包括所有父目录
+        includes ':demo', ':Components', ':lib-a'
+        //不收集lib-c的arouter-apiDoc
+        excludes ':Components:lib-c'
+    }
+}
+
+android {
+    buildFeatures {
+        viewBinding true
+    }
+
+    compileSdk 31
+
+    defaultConfig {
+        minSdk 23
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        consumerProguardFiles "consumer-rules.pro"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.name, AROUTER_GENERATE_DOC: "enable"]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation project(':lib-a')
+    implementation project(':Components:lib-b')
+    implementation 'com.alibaba:arouter-api:1.5.2'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.5.2'
+
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+}

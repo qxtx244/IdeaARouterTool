@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+    id 'groovy'
+}
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+java {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+//    implementation 'com.android.tools.build:gradle:4.2.0'
+}
+
+ext.pomVersionName = '1.0.0'
+ext.pomGroupId = 'com.qxtx.idea.gradle.plugin.aroutertool'
+ext.pomSrcDirs = ['src/main/groovy']
+//如果需要发布到指定的仓库，如发布到当前项目目录的.mavenCentral仓库
+//ext.pomMavenCentral = "file://${rootDir.absolutePath}\\.mavenCentral"
+apply from: javaMavenConfPath
