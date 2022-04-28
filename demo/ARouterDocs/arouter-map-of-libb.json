@@ -1,0 +1,11 @@
+{
+	"components":[
+		{
+			"group":"components",
+			"path":"/components/activity",
+			"className":"com.qxtx.idea.gradle.plugin.demo.lib_b.ComponentActivity",
+			"type":"activity",
+			"mark":125
+		}
+	]
+}

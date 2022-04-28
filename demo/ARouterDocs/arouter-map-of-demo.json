@@ -1,0 +1,11 @@
+{
+	"demo":[
+		{
+			"group":"demo",
+			"path":"/demo/activity",
+			"className":"com.qxtx.idea.gradle.demo_aroutertool.DemoActivity",
+			"type":"activity",
+			"mark":124
+		}
+	]
+}

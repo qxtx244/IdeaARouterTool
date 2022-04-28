@@ -1,0 +1,18 @@
+{
+	"liba":[
+		{
+			"group":"liba",
+			"path":"/liba/activity",
+			"className":"com.qxtx.idea.gradle.plugin.demo.lib_a.LibActivity",
+			"type":"activity",
+			"mark":-2147483648,
+			"params":[
+				{
+					"key":"msg",
+					"type":"string",
+					"required":false
+				}
+			]
+		}
+	]
+}

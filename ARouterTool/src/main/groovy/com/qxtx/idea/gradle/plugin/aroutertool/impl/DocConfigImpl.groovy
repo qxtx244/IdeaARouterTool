@@ -71,20 +71,26 @@ class DocConfigImpl extends Base {
 
     def collect(def project, def destDir) {
         //检查ARouter是否已经生成doc
-        def outDir = "${project.buildDir.absolutePath}/generated/ap_generated_sources/debug/out"
-        def uri = 'com/alibaba/android/arouter/docs'
-        def docDirectory = new File("$outDir/$uri")
-        if (!docDirectory.isDirectory()) return
+        def outDir = "${project.buildDir.absolutePath}/generated/ap_generated_sources"
+        //laiyx 2022/4/28 13:36 如果是存在flavor的project，那么目标目录并不是debug，而是flavor + Debug
+        new File(outDir).with {
+            if (!it.exists()) return
+            listFiles().each {
+                def uri = 'out/com/alibaba/android/arouter/docs'
+                def docDirectory = new File("${it.absolutePath}/$uri")
+                if (!docDirectory.isDirectory()) return
 
-        docDirectory.listFiles().each {srcFile ->
-            srcFile.withInputStream { is ->
-                def destFile = new File("$destDir\\${srcFile.name}")
-                destFile.parentFile.mkdirs()
-                destFile.withOutputStream { os ->
-                    os << is
+                docDirectory.listFiles().each {srcFile ->
+                    srcFile.withInputStream { is ->
+                        def destFile = new File("$destDir\\${srcFile.name}")
+                        destFile.parentFile.mkdirs()
+                        destFile.withOutputStream { os ->
+                            os << is
+                        }
+                    }
+                    println "$TAG doc收集：${srcFile.absolutePath}"
                 }
             }
-            println "$TAG doc收集：${srcFile.absolutePath}"
         }
     }
 }
