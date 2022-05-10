@@ -14,9 +14,9 @@ ARouterTool {
     docConfig {
         //启用doc收集功能，输出路径为module
         docEnable true
-        //收集指定project的arouter-apiDoc，Components意味着包括所有父目录
+        //收集指定project的arouter产生的api文档，Components意味着包括所有父目录
         includes ':demo', ':Components', ':lib-a'
-        //不收集lib-c的arouter-apiDoc
+        //不收集lib-c的arouter产生的api文档
         excludes ':Components:lib-c'
     }
 }
