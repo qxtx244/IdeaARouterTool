@@ -1,4 +1,4 @@
-rootProject.name = "ARouterTool"
+rootProject.name = "IdeaARouterTool"
 
 include ':ARouterTool'
 include ':demo'
