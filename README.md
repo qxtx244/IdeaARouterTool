@@ -1,4 +1,4 @@
-﻿ARouterTool
+﻿IdeaARouterTool
 ===========
 
 ## **概述**
@@ -9,8 +9,8 @@
 ## **使用**
 
 ### **· 导入插件**
-  1. 打开AS右侧Gradle面板，依次展开ResCheck/ResCheck/Tasks；
-  2. 展开build任务组，双击执行“jar”选项，jar文件输出目录：ResCheck/jars
+  1. 打开AS右侧Gradle面板，依次展开IdeaARouterTool/ARouterTool/Tasks；
+  2. 展开build任务组，双击执行“jar”选项，jar文件输出目录：ARouterTool/jars
   3. 在目标工程根或module的build.gradle顶部中添加：
      ```
      buildScript {
@@ -43,5 +43,5 @@
 
 ## **demo**
 demo工程将演示使用ARouter框架的时候，demo工程如何收集它自己以及依赖的其它module中arouter生成的api doc。  
-插件配置在ARouterTool/demo/build.gradle
+插件配置在IdeaARouterTool/demo/build.gradle
 
