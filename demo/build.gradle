@@ -1,6 +1,6 @@
 buildscript {
     dependencies {
-        classpath files('../ARouterTool/jars/ARouterTool-1.0.1.jar')
+        classpath 'io.github.qxtx244.build:IdeaARouterTool:1.0.1'
     }
 }
 

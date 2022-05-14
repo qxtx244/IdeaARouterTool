@@ -30,10 +30,3 @@ gradle.buildFinished {
         into "${projectDir.absolutePath}/jars"
     }
 }
-
-//ext.pomVersionName = '1.0.1'
-//ext.pomGroupId = 'com.qxtx.idea.gradle.plugin.aroutertool'
-//ext.pomSrcDirs = ['src/main/groovy']
-////如果需要发布到指定的仓库，如发布到当前项目目录的.mavenCentral仓库
-////ext.pomMavenCentral = "file://${rootDir.absolutePath}\\.mavenCentral"
-//apply from: javaMavenConfPath

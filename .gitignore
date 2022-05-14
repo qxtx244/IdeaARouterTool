@@ -3,4 +3,5 @@ build
 .gradle
 .idea
 /build
-local.properties
+/local.properties
+/ARouterTool/jars

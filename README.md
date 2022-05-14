@@ -1,26 +1,27 @@
-﻿IdeaARouterTool
+﻿ARouterTool
 ===========
 
 ## **概述**
-针对开源路由框架[ARouter](https://github.com/alibaba/ARouter)的辅助性gradle插件，提供一些便捷功能。主要功能如下：
-+ 对ARouter产生的api doc的收集
+gradle插件。针对开源路由框架[ARouter](https://github.com/alibaba/ARouter)的辅助方案，提供一些便捷功能。主要功能如下：
++ 收集ARouter为各module生成的api文档
 + ~~（已移除）ARouter的自动依赖注入~~
 
 ## **使用**
 
-### **· 导入插件**
-  1. 打开AS右侧Gradle面板，依次展开IdeaARouterTool/ARouterTool/Tasks；
-  2. 展开build任务组，双击执行“jar”选项，jar文件输出目录：ARouterTool/jars
-  3. 在目标工程根或module的build.gradle顶部中添加：
-     ```
-     buildScript {
-        dependencies {
-            classpath files('插件jar的路径') //依赖插件
-        }
-     }
-     ```
+### **1.插件依赖**
+在目标工程根或module的build.gradle顶部中添加：
+```
+buildScript {
+   repositories {
+       mavenCentral()  //添加mavenCentral 
+   } 
+   dependencies {
+       classpath 'io.github.qxtx244.build:IdeaARouterTool:1.0.1'    //添加到classpath
+   }
+}
+```
 
-### **· 使插件工作**
+### **2.使插件工作**
 1. **添加代码**  
    在父级module的build.gradle中，添加以下代码（*将所有使用ARouter的组件库都放到一起，更容易统一管理*）  
    添加插件
@@ -42,6 +43,5 @@
     这将有利于路由信息的归档
 
 ## **demo**
-demo工程将演示使用ARouter框架的时候，demo工程如何收集它自己以及依赖的其它module中arouter生成的api doc。  
-插件配置在IdeaARouterTool/demo/build.gradle
+demo工程将演示在使用ARouter时，ARouterTool插件如何收集ARouter为各个module生成的api文档。
 
